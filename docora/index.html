@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f9ff">
+ <meta name="description" content="Download Docora – PDF Reader & Editor. Read, scan, convert and manage your documents in one place.">
+  <title>Docora — Your Documents. One Intelligent Space.</title>
+  <style>
+    :root {
+      --navy: #14213d;
+      --blue: #3867f4;
+      --blue-dark: #2450d8;
+      --muted: #68748b;
+      --line: #e6eaf2;
+      --bg: #f7f9ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: white;
+      border-radius: 13px;
+      background: linear-gradient(145deg,#5d83ff,#2853df);
+      font-weight: 800;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #59657c;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 19px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 86px 0 74px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid #dce5ff;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #eef3ff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(42px,5.5vw,66px);
+      line-height: 1.06;
+      letter-spacing: -2.8px;
+      margin: 22px 0 20px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 550px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .secondary {
+      padding: 11px 17px;
+      border: 1px solid #dce2ed;
+      border-radius: 12px;
+      background: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .subnote {
+      margin-top: 18px;
+      color: #8791a4;
+      font-size: 12px;
+    }
+
+    .visual {
+      min-height: 420px;
+      border-radius: 30px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg,#edf2ff,#e8f7f4);
+      border: 1px solid #e2e9f7;
+    }
+
+    .device {
+      width: 238px;
+      padding: 12px;
+      border: 7px solid #17233d;
+      border-radius: 32px;
+      background: white;
+      box-shadow: 0 28px 65px rgba(28,48,91,.2);
+      transform: rotate(-5deg);
+    }
+
+    .screen {
+      background: #f8faff;
+      border-radius: 19px;
+      padding: 16px 13px 18px;
+      min-height: 355px;
+    }
+
+    .screen-top {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .screen-top small { color: var(--blue); }
+
+    .welcome {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .screen-muted {
+      color: #8a95a9;
+      font-size: 10px;
+      margin-bottom: 16px;
+    }
+
+    .doc-card {
+      background: white;
+      border: 1px solid #edf0f6;
+      padding: 12px;
+      border-radius: 13px;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-icon {
+      width: 34px;
+      height: 39px;
+      border-radius: 8px;
+      background: #edf2ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .doc-lines b { display: block; font-size: 10px; }
+    .doc-lines span { color: #98a1b1; font-size: 8px; }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tool {
+      background: white;
+      border: 1px solid #edf0f6;
+      border-radius: 11px;
+      padding: 11px 8px;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .tool i {
+      display: block;
+      font-style: normal;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .float-card {
+      position: absolute;
+      background: white;
+      border: 1px solid #e7ebf3;
+      border-radius: 15px;
+      padding: 12px 15px;
+      box-shadow: 0 14px 35px rgba(34,54,95,.1);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .float-card span {
+      color: #7d899d;
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .float-one { top: 58px; left: 12px; }
+    .float-two { bottom: 54px; right: 5px; }
+
+    section { padding: 72px 0; }
+
+    .section-head {
+      max-width: 650px;
+      text-align: center;
+      margin: 0 auto 38px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(29px,3.5vw,40px);
+      letter-spacing: -1.3px;
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+
+    .section-head p { color: var(--muted); }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 17px;
+    }
+
+    .feature {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(27,45,82,.035);
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      background: #eef3ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+      margin-bottom: 17px;
+    }
+
+    .feature h3 { margin: 0 0 7px; font-size: 17px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .about-band {
+      background: #14213d;
+      color: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-band h2 {
+      font-size: 36px;
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    .about-band p { color: #c0cadd; }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .point {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 15px;
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .point span { color: #8eafff; margin-right: 7px; }
+
+    .contact-card {
+      text-align: center;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 38px 24px;
+    }
+
+    .contact-card h2 { margin: 0 0 8px; font-size: 30px; }
+    .contact-card p { color: var(--muted); margin-bottom: 18px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+      color: #7a8599;
+      font-size: 12px;
+      background: white;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; gap: 20px; }
+
+    @media(max-width:800px) {
+      .hero-grid,.about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .features { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media(max-width:560px) {
+      .wrap { width: calc(100% - 30px); }
+      .nav { height: 66px; }
+      .navlinks { gap: 10px; }
+      .navlinks a:not(.button) { display: none; }
+      .hero { padding-top: 43px; }
+      h1 { letter-spacing: -1.8px; }
+      .lead { font-size: 16px; }
+      .visual { min-height: 370px; }
+      .device { transform: scale(.9) rotate(-4deg); }
+      section { padding: 55px 0; }
+      .features,.about-points { grid-template-columns: 1fr; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <span class="logo">D</span> Docora
+    </a>
+
+    <nav class="navlinks">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="button" href="#download">Get Docora ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+
+      <div>
+        <div class="eyebrow">✦ Document productivity, simplified</div>
+
+        <h1>
+          Your Documents.<br>
+          <span>One Intelligent Space.</span>
+        </h1>
+
+        <p class="lead">
+          Read, scan, convert and manage your PDF documents
+          with Docora. Essential document tools, brought
+          together in one simple experience.
+        </p>
+
+        <div class="hero-actions" id="download">
+          <!-- Replace # with your actual Google Play URL -->
+          <a class="button" href="https://play.google.com/store/apps/details?id=com.docora.document" target="_blank" rel="noopener noreferrer">
+  ▶ Get it on Google Play
+</a>
+
+          <a class="secondary" href="#features">
+            Explore features
+          </a>
+        </div>
+
+        <p class="subnote">
+          A simpler way to work with everyday documents.
+        </p>
+      </div>
+
+      <div class="visual">
+
+        <div class="float-card float-one">
+          📄 PDF tools
+          <span>Everything in one place</span>
+        </div>
+
+        <div class="device">
+          <div class="screen">
+
+            <div class="screen-top">
+              <span>◧ Docora</span>
+              <small>MY FILES</small>
+            </div>
+
+            <div class="welcome">Good day 👋</div>
+
+            <div class="screen-muted">
+              What would you like to do today?
+            </div>
+
+            <div class="doc-card">
+              <div class="doc-icon">PDF</div>
+              <div class="doc-lines">
+                <b>Project Overview.pdf</b>
+                <span>PDF document · 2.4 MB</span>
+              </div>
+            </div>
+
+            <div class="doc-card">
+              <div class="doc-icon">IMG</div>
+              <div class="doc-lines">
+                <b>Scanned Document</b>
+                <span>Image · Recently added</span>
+              </div>
+            </div>
+
+            <div class="tool-grid">
+              <div class="tool"><i>📖</i>PDF Reader</div>
+              <div class="tool"><i>📷</i>Scan Document</div>
+              <div class="tool"><i>🔄</i>Convert to PDF</div>
+              <div class="tool"><i>🗂️</i>Manage Files</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="float-card float-two">
+          ✓ Made simple
+          <span>Your documents, organized</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+
+      <div class="section-head">
+        <h2>Everything you need for your documents</h2>
+        <p>
+          Docora brings useful PDF and document tools together,
+          so everyday tasks feel simpler.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <article class="feature">
+          <div class="feature-icon">📖</div>
+          <h3>PDF Reader</h3>
+          <p>Open and read your PDF documents in a clean, convenient reading experience.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">✏️</div>
+          <h3>PDF Tools</h3>
+          <p>Work with supported PDF tools to handle common document tasks.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">📸</div>
+          <h3>Document Scanner</h3>
+          <p>Use your device camera to capture paper documents and create digital copies.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">🔄</div>
+          <h3>Image to PDF</h3>
+          <p>Turn selected images into PDF files with a simple workflow.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">🗃️</div>
+          <h3>Document Manager</h3>
+          <p>Find and manage your documents from one convenient place.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">📤</div>
+          <h3>Share & Export</h3>
+          <p>Share or export documents using the options available on your device.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about-band" id="about">
+    <div class="wrap about-grid">
+
+      <div>
+        <h2>Less document hassle.<br>More getting things done.</h2>
+
+        <p>
+          Docora is designed to make working with digital documents
+          more approachable. Whether it is a PDF you need to read,
+          a page you want to scan or an image you want to convert,
+          Docora helps bring your document tasks into one place.
+        </p>
+      </div>
+
+      <div class="about-points">
+        <div class="point"><span>✓</span>Simple experience</div>
+        <div class="point"><span>✓</span>Useful everyday tools</div>
+        <div class="point"><span>✓</span>Document-focused workspace</div>
+        <div class="point"><span>✓</span>Designed for mobile</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+
+      <div class="contact-card">
+        <h2>Need help with Docora?</h2>
+
+        <p>
+          Questions, feedback or suggestions?
+          We'd love to hear from you.
+        </p>
+
+        <a class="button" href="mailto:gtech10926@gmail.com">
+          Contact Support ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+
+    <div>
+      © <span id="year">2026</span>
+      GurjantTech. Docora is a product by GurjantTech.
+    </div>
+
+    <div class="footer-links">
+      <!-- Replace with your published privacy policy URL -->
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:gtech10926@gmail.com">Support</a>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
