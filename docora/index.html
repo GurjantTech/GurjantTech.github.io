@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f9ff">
- <meta name="description" content="Download Docora – PDF Reader & Editor. Read, scan, convert and manage your documents in one place.">
+ <meta name="description" content="Download Docora – your all-in-one document companion. Read, scan, convert, organize and manage your PDF documents.">
   <title>Docora — Your Documents. One Intelligent Space.</title>
   <style>
     :root {
@@ -160,124 +160,23 @@
       font-size: 12px;
     }
 
-    .visual {
-      min-height: 420px;
-      border-radius: 30px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg,#edf2ff,#e8f7f4);
-      border: 1px solid #e2e9f7;
-    }
-
-    .device {
-      width: 238px;
-      padding: 12px;
-      border: 7px solid #17233d;
-      border-radius: 32px;
-      background: white;
-      box-shadow: 0 28px 65px rgba(28,48,91,.2);
-      transform: rotate(-5deg);
-    }
-
-    .screen {
-      background: #f8faff;
-      border-radius: 19px;
-      padding: 16px 13px 18px;
-      min-height: 355px;
-    }
-
-    .screen-top {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 800;
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-
-    .screen-top small { color: var(--blue); }
-
-    .welcome {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    .screen-muted {
-      color: #8a95a9;
-      font-size: 10px;
-      margin-bottom: 16px;
-    }
-
-    .doc-card {
-      background: white;
-      border: 1px solid #edf0f6;
-      padding: 12px;
-      border-radius: 13px;
-      margin-bottom: 9px;
+    .app-preview {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      min-width: 0;
     }
 
-    .doc-icon {
-      width: 34px;
-      height: 39px;
-      border-radius: 8px;
-      background: #edf2ff;
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .doc-lines b { display: block; font-size: 10px; }
-    .doc-lines span { color: #98a1b1; font-size: 8px; }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .tool {
-      background: white;
-      border: 1px solid #edf0f6;
-      border-radius: 11px;
-      padding: 11px 8px;
-      font-size: 9px;
-      font-weight: 700;
-    }
-
-    .tool i {
+    .app-preview img {
       display: block;
-      font-style: normal;
-      font-size: 17px;
-      margin-bottom: 4px;
+      width: auto;
+      max-width: 100%;
+      max-height: 720px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 28px;
+      box-shadow: 0 28px 70px rgba(49, 58, 130, .22);
     }
-
-    .float-card {
-      position: absolute;
-      background: white;
-      border: 1px solid #e7ebf3;
-      border-radius: 15px;
-      padding: 12px 15px;
-      box-shadow: 0 14px 35px rgba(34,54,95,.1);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .float-card span {
-      color: #7d899d;
-      display: block;
-      font-size: 10px;
-      font-weight: 500;
-    }
-
-    .float-one { top: 58px; left: 12px; }
-    .float-two { bottom: 54px; right: 5px; }
 
     section { padding: 72px 0; }
 
@@ -404,8 +303,7 @@
       .hero { padding-top: 43px; }
       h1 { letter-spacing: -1.8px; }
       .lead { font-size: 16px; }
-      .visual { min-height: 370px; }
-      .device { transform: scale(.9) rotate(-4deg); }
+      .app-preview img { max-height: 680px; width: auto; max-width: 100%; border-radius: 22px; }
       section { padding: 55px 0; }
       .features,.about-points { grid-template-columns: 1fr; }
       .footer-row { flex-direction: column; align-items: flex-start; }
@@ -465,58 +363,14 @@
         </p>
       </div>
 
-      <div class="visual">
-
-        <div class="float-card float-one">
-          📄 PDF tools
-          <span>Everything in one place</span>
-        </div>
-
-        <div class="device">
-          <div class="screen">
-
-            <div class="screen-top">
-              <span>◧ Docora</span>
-              <small>MY FILES</small>
-            </div>
-
-            <div class="welcome">Good day 👋</div>
-
-            <div class="screen-muted">
-              What would you like to do today?
-            </div>
-
-            <div class="doc-card">
-              <div class="doc-icon">PDF</div>
-              <div class="doc-lines">
-                <b>Project Overview.pdf</b>
-                <span>PDF document · 2.4 MB</span>
-              </div>
-            </div>
-
-            <div class="doc-card">
-              <div class="doc-icon">IMG</div>
-              <div class="doc-lines">
-                <b>Scanned Document</b>
-                <span>Image · Recently added</span>
-              </div>
-            </div>
-
-            <div class="tool-grid">
-              <div class="tool"><i>📖</i>PDF Reader</div>
-              <div class="tool"><i>📷</i>Scan Document</div>
-              <div class="tool"><i>🔄</i>Convert to PDF</div>
-              <div class="tool"><i>🗂️</i>Manage Files</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="float-card float-two">
-          ✓ Made simple
-          <span>Your documents, organized</span>
-        </div>
-
+      <div class="app-preview">
+        <img
+          src="docora-home.png"
+          alt="Docora app home screen showing document search, storage, reminders, scanning, image to PDF and document tools"
+          width="1080"
+          height="1920"
+          loading="eager"
+        >
       </div>
     </div>
   </section>
